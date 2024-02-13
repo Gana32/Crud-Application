@@ -1,0 +1,66 @@
+// controllers/CompanyController.js
+const express = require('express');
+const CompanyService = require('../Service/CompanyService');
+const authenticateToken = require('../Middleware/autheticateToken');
+
+const router = express.Router();
+const companyService = new CompanyService();
+
+// Middleware to authenticate the token
+router.use(authenticateToken);
+
+router.post('/create', async (req, res) => {
+  const { name, industry, location } = req.body;
+
+  try {
+    const company = await companyService.createCompany(name, industry, location);
+    res.status(201).json(company);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+});
+
+router.get('/get/:companyId', async (req, res) => {
+  const companyId = req.params.companyId;
+
+  try {
+    const company = await companyService.getCompanyById(companyId);
+    res.json(company);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
+
+router.get('/getAll', async (req, res) => {
+  try {
+    const companies = await companyService.getAllCompanies();
+    res.json(companies);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+router.put('/update/:companyId', async (req, res) => {
+  const companyId = req.params.companyId;
+  const updateData = req.body;
+
+  try {
+    const updatedCompany = await companyService.updateCompany(companyId, updateData);
+    res.json(updatedCompany);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
+
+router.delete('/delete/:companyId', async (req, res) => {
+  const companyId = req.params.companyId;
+
+  try {
+    await companyService.deleteCompany(companyId);
+    res.json('Company deleted successfully');
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
+
+module.exports = router;

@@ -1,0 +1,36 @@
+<!-- update-company.component.html -->
+<mat-toolbar color="primary">
+    <!-- <button mat-icon-button (click)="navigateToCreateCompany()"> -->
+      <!-- <mat-icon>business</mat-icon> -->
+      <button routerLink="/company"><mat-icon >business</mat-icon></button>
+    <!-- </button> -->
+    <span class="spacer"></span>
+    <!-- <button mat-button routerLink="/create-company">Create Company</button> -->
+    <button mat-icon-button (click)="logout()" matTooltip="Logout" aria-label="Logout">
+        Logout<mat-icon style="color: red;">exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+  <br>
+
+<div>
+    <h2>Update Company</h2>
+    <form (ngSubmit)="updateCompany()">
+      <mat-form-field>
+        <label for="name">Name:</label>
+        <input matInput type="text" id="name" name="name" [(ngModel)]="company.name" required>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <label for="industry">Industry:</label>
+        <input matInput type="text" id="industry" name="industry" [(ngModel)]="company.industry" required>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <label for="location">Location:</label>
+        <input matInput type="text" id="location" name="location" [(ngModel)]="company.location" required>
+      </mat-form-field>
+  <br>
+      <button mat-raised-button type="submit">Update Company</button>
+    </form>
+  </div>
+  

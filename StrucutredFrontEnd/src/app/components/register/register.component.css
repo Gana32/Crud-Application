@@ -1,0 +1,14 @@
+/* src/app/register/register.component.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../../../assets/bg.jpg);
+
+  }
+  
+  .card {
+    width: 400px;
+  }
+  

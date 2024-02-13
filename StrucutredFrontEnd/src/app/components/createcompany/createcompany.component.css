@@ -1,0 +1,22 @@
+
+.spacer {
+    flex: 0.9;
+    background-image: url(../../../assets/bg.jpg);
+  }
+
+  .card {
+    width: 500px;
+    
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+  .t-container{
+    background-image: url(../../../assets/bg.jpg);
+  }
+  
+  

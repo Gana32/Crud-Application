@@ -1,0 +1,52 @@
+<div class="t-container">
+<mat-toolbar color="primary">
+    <!-- <button mat-icon-button (click)="navigateToCreateCompany()"> -->
+      <!-- <mat-icon>business</mat-icon> -->
+      <button routerLink="/company"><mat-icon >business</mat-icon></button>
+    <!-- </button> -->
+    <span class="spacer"></span>
+    <!-- <button mat-button routerLink="/create-company">Create Company</button> -->
+    <button mat-icon-button (click)="logout()" matTooltip="Logout" aria-label="Logout">
+        Logout<mat-icon style="color: red;">exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+  <br>
+<!-- <div>
+    <h2>Create Company</h2>
+    <form #companyForm="ngForm">
+      <label for="name">Name:</label>
+      <input id="name" name="name" [(ngModel)]="company.name" required>
+  
+      <label for="industry">Industry:</label>
+      <input id="industry" name="industry" [(ngModel)]="company.industry" required>
+  
+      <label for="location">Location:</label>
+      <input id="location" name="location" [(ngModel)]="company.location" required>
+  
+      <button type="button" (click)="createCompany()">Create Company</button>
+    </form>
+  </div> -->
+  <div class="container">
+  <mat-card class="card">
+    <h2>Create Company</h2>
+    <form #companyForm="ngForm">
+      <mat-form-field class="full-width">
+        <label for="name">Name:</label>
+        <input matInput id="name" name="name" [(ngModel)]="company.name" required>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <label for="industry">Industry:</label>
+        <input matInput id="industry" name="industry" [(ngModel)]="company.industry" required>
+      </mat-form-field>
+  <br>
+      <mat-form-field>
+        <label for="location">Location:</label>
+        <input matInput id="location" name="location" [(ngModel)]="company.location" required>
+      </mat-form-field>
+  <br>
+      <button mat-raised-button color="primary" type="button" (click)="createCompany()">Create Company</button>
+    </form>
+</mat-card>
+</div>
+</div>
